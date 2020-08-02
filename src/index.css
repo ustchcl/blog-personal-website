@@ -11,3 +11,53 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+@font-face {
+  font-family: title-2;
+  src: url(../src/assets/font/deadends.woff.ttf)
+}
+
+@font-face {
+  font-family: title-1;
+  src: url(../src/assets/font/MIRARAEN.TTF)
+}
+
+/** home */
+
+.menu-item {
+  height: 50px;
+  width: 200px;
+  border-left: 1px solid black;
+  color: black;
+  transition: color 0.4s ease 0s;
+  cursor: pointer;
+}
+
+.menu-item:hover {
+  color: #6600EA;
+  transition: color 0.4s ease 0s;
+}
+
+
+.nav-menu {
+  display: flex;
+  justify-content: center;
+  width: 99%;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  margin-top: 30px;
+}
+
+.menu-container {
+  width: 980px;
+  display: flex;
+  display: flex;
+  justify-content: left;
+}
+
+.menu-extra {
+  flex: 1;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
