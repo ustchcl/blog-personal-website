@@ -9,21 +9,6 @@ import LastestPost from '../../components/LastestPost';
 import Foot from './Foot';
 
 
-function merge(a: Uint8Array, b: Uint8Array): Uint8Array {
-  var c = new Uint8Array(a.length + b.length);
-  c.set(a);
-  c.set(b, a.length);
-  return c;
-}
-
-function Uint8ArrayToString(data: Uint8Array){
-  var dataString = new String();
-  for (var i = 0; i < data.length; i++) {
-    dataString += String.fromCharCode(data[i]);
-  }
-  return dataString
-}
-
 export default class Home extends React.Component {
   readonly menus =  ['主页', '关于', '我的博客', '联系'];
 
@@ -40,9 +25,20 @@ export default class Home extends React.Component {
     )
   }
 
+  navigateTo(title: string) {
+    let props: any = this.props;
+    return () => {
+      if (title === "我的博客") {
+        if (props.history) {
+          props.history.push('/posts');
+        }
+      }
+    }
+  }
+
   renderMenuItem(title: string, index: number) {
     return (
-      <div className="menu-item" key={index}>
+      <div className="menu-item" key={index} onClick={this.navigateTo(title)}>
         <Center>{title}</Center>
       </div>
     )
@@ -52,7 +48,7 @@ export default class Home extends React.Component {
     return (
       <div className="nav-menu">
         <div className="menu-container">
-          {this.menus.map(this.renderMenuItem)}
+          {this.menus.map(this.renderMenuItem.bind(this))}
           <div className="menu-extra">
             <Center>github</Center>
           </div>

@@ -1,0 +1,37 @@
+.post-col {
+  display: flex;
+  flex-direction: column;
+  .post-item {
+    margin-top: 40px;
+  }
+  .post-item:first {
+    margin-top: 0;
+  }
+}
+
+.tags {
+  display: flex;
+  justify-content: 'flex-start';
+  width: 980px;
+  margin-top: 50px;
+  .tag-item {
+    margin-right: 30px;
+    font-family: title-1;
+    font-size: 15px;
+    color: black;
+    cursor: pointer;
+  }
+  .tag-item:hover {
+    color: rgb(102, 0, 234);
+  }
+}
+
+.markdown-content {
+  margin-top: 30px;
+  display: flex;
+  width: 920px;
+  padding: 30px;
+  flex-direction: column;
+  text-align: left;
+  border: 1px solid black;
+}

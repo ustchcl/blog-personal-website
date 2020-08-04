@@ -2,6 +2,8 @@ import ReactMarkdown from 'react-markdown'
 import React from 'react'
 import RemarkMathPlugin from 'remark-math';
 import MathJax from 'react-mathjax';
+import CodeBlock from './CodeBlock.jsx';
+
 
 type MarkdownRenderProps = {
   source: string,
@@ -16,6 +18,7 @@ export default function MarkdownRender(props: MarkdownRenderProps) {
     ],
     renderers: {
       ...props.renderers,
+      code: CodeBlock,
       math: (props: any) => 
         <MathJax.Node formula={props.value} />,
       inlineMath: (props: any) =>

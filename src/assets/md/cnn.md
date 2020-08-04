@@ -1,6 +1,12 @@
 # CNN
 
-
+```rust
+#[tokio::main]
+async fn main() {
+    delay::new(2000).await;
+    println!("hello, {}", "rust");
+}
+```
 
 ------
 
@@ -113,7 +119,7 @@ $$up(x)\equiv x\otimes 1_{n\times n}$$
 
 ![克罗克内积](http://c.hiphotos.baidu.com/baike/c0%3Dbaike116%2C5%2C5%2C116%2C38/sign=7dde9e4076c6a7efad2ba0749c93c434/d009b3de9c82d1585670622e800a19d8bd3e42ba.jpg)
 
-``` c++
+``` cpp
 // 克罗克内积,对矩阵进行扩展
 void kronecker(
         const vector2d& matrix,
@@ -145,7 +151,7 @@ $$\frac{\partial E}{\partial b_j}=\sum_{u,v} (\delta_j^\ell)_{uv}$$
 
 
 
-``` c++
+``` cpp
 void CNN::updateBias(Layer& layer) {
 	vector4d& errors = layer.getErrors();
     int lengthI = errors.size();
@@ -179,7 +185,7 @@ $$\frac{\partial E}{\partial k_{ij}^\ell}=rot180(conv2(x_i^{\ell-1},rot180(\delt
 
 
 
-``` c++
+``` cpp
 void CNN::updateKernels(Layer& layer, Layer& lastLayer) {
     int mapNum = layer.getOutMapNum();
     const int lastMapNum = lastLayer.getOutMapNum();
@@ -255,7 +261,7 @@ $$\frac{\partial E}{\partial \beta_j}=\sum_{u,v}(\delta_j^\ell \circ \text{d}_j^
 
 
 
-``` c++
+``` cpp
 void CNN::setSampErrors(Layer& layer, Layer& nextLayer) {
     int mapNum = layer.getOutMapNum();
     const int nextMapNum = nextLayer.getOutMapNum();

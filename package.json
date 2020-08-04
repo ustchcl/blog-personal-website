@@ -56,6 +56,8 @@
     "react-dom": "^16.13.1",
     "react-markdown": "^4.3.1",
     "react-mathjax": "^1.0.1",
+    "react-router-dom": "^5.2.0",
+    "react-syntax-highlighter": "^13.2.1",
     "remark-math": "^2.0.1",
     "resolve": "1.15.0",
     "resolve-url-loader": "3.1.1",
@@ -145,5 +147,9 @@
     "presets": [
       "react-app"
     ]
+  },
+  "devDependencies": {
+    "@types/react-router-dom": "^5.1.5",
+    "@types/react-syntax-highlighter": "^11.0.4"
   }
 }

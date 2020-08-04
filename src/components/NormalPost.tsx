@@ -12,10 +12,11 @@ type NormalPostProps = {
 export default function NormalPost(props: NormalPostProps) {
   return (
     <div className="normal-post">
-      <div style={{width: '100%', height: 256,  
+      {/* <div style={{width: '100%', height: 256,  
         backgroundImage: `url(${props.associatedImage})`,
         backgroundSize: 'cover'
-      }}/>
+      }}/> */}
+      <img src={props.associatedImage} height={220 + Math.random() * 60} width="100%"/>
       <div className="text-info">
         <span className="time">Apr. 4 2 min</span>
         <span className="title">{props.title}</span>
