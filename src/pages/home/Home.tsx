@@ -7,11 +7,18 @@ import TheHomePost from '../../components/TheHomePost';
 import NormalPost from '../../components/NormalPost';
 import LastestPost from '../../components/LastestPost';
 import Foot from './Foot';
+import NavBar from '../../components/NavBar';
 
 
 export default class Home extends React.Component {
-  readonly menus =  ['主页', '关于', '我的博客', '联系'];
-
+  readonly menus =  [
+    {title: '主页', goto: '/home'},
+    {title: '关于', goto: '/home'},
+    {title: '我的博客', goto: '/posts'},
+    {title: '联系', goto: '/home'},
+    {title: 'Github', goto: '/home'},
+  ]
+    
   renderHeader() {
     return (
       <div style={{height: 200, marginTop: 50, width: 980, display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
@@ -38,8 +45,10 @@ export default class Home extends React.Component {
 
   renderMenuItem(title: string, index: number) {
     return (
-      <div className="menu-item" key={index} onClick={this.navigateTo(title)}>
-        <Center>{title}</Center>
+      <div className="menu-item-wrapper">
+        <div className="menu-item" key={index} onClick={this.navigateTo(title)}>
+          <Center>{title}</Center>
+        </div>
       </div>
     )
   }
@@ -47,12 +56,9 @@ export default class Home extends React.Component {
   renderBanner() {
     return (
       <div className="nav-menu">
-        <div className="menu-container">
+        {/* <div className="menu-container">
           {this.menus.map(this.renderMenuItem.bind(this))}
-          <div className="menu-extra">
-            <Center>github</Center>
-          </div>
-        </div>
+        </div> */}
       </div>
     )
   }
@@ -61,7 +67,8 @@ export default class Home extends React.Component {
     return (
       <div style={{width: '100%', display: 'flex', flexDirection: 'column' ,alignItems: 'center'}}>
         {this.renderHeader()}
-        {this.renderBanner()}
+        {/* {this.renderBanner()} */}
+        <NavBar menus={this.menus}/>
         <div style={{display: 'flex', width: 980, flexDirection: 'column', alignItems: 'center', textAlign: 'center'}}>
           {/* <MarkdownRender source={cnn}/> */}
           <TheHomePost 

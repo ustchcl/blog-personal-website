@@ -1,12 +1,19 @@
 import React, {Component} from 'react'
 import Center from '../../components/Center';
+import NavBar from '../../components/NavBar';
 import NormalPost from '../../components/NormalPost';
 import Foot from '../home/Foot';
 import './post_list.scss'
 
 
 export default class PostList extends Component {
-  readonly menus =  ['主页', '关于', '我的博客', '联系'];
+  readonly  menus =  [
+    {title: '主页', goto: '/home'},
+    {title: '关于', goto: '/home'},
+    {title: '我的博客', goto: '/posts'},
+    {title: '联系', goto: '/home'},
+    {title: 'Github', goto: '/home'},
+  ]
 
   navigateTo(title: string) {
     let props: any = this.props;
@@ -42,18 +49,6 @@ export default class PostList extends Component {
     )
   }
 
-  renderBanner() {
-    return (
-      <div className="nav-menu">
-        <div className="menu-container">
-          {this.menus.map(this.renderMenuItem.bind(this))}
-          <div className="menu-extra">
-            <Center>github</Center>
-          </div>
-        </div>
-      </div>
-    )
-  }
 
   leftCol() {
     return (
@@ -88,7 +83,7 @@ export default class PostList extends Component {
     return (
       <div style={{width: '100%', display: 'flex', flexDirection: 'column' ,alignItems: 'center'}}>
         {this.renderHeader()}
-        {this.renderBanner()}
+        <NavBar menus={this.menus}/>
         {this.renderTags()}
         <div style={{display: 'flex', width: 980, justifyContent: 'space-between'}}>
           {this.leftCol()}
