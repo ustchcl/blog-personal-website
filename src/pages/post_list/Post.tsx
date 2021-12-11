@@ -4,57 +4,11 @@ import MarkdownRender from '../../components/MarkdownRender';
 import Foot from '../home/Foot';
 import './post_list.scss'
 import cnn from '../../assets/md/cnn.md';
+import Header from '../../components/Header';
+import NavBar from '../../components/NavBar';
 
 
 export default class Post extends Component {
-  readonly menus =  ['主页', '关于', '我的博客', '联系'];
-
-  navigateTo(title: string) {
-    let props: any = this.props;
-    return () => {
-      if (title === "我的博客") {
-        (this.props as any)['history'].push('/posts')
-        if (props.history) {
-          props.history.push('/posts');
-        }
-      }
-    }
-  }
-
-  renderHeader() {
-    return (
-      <div style={{height: 200, marginTop: 50, width: 980, display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
-        <div style={{letterSpacing: "0.4rem", color: "black", fontSize: 22, fontFamily: 'title-2'}}>
-          TALK IS CHEAP, SHOW ME THE CODE.
-        </div>
-        <div style={{fontSize: 116, /* fontWeight: "bold", */ fontFamily: 'title-1'}}>
-          Think Different
-        </div>
-      </div>
-    )
-  }
-
-  renderMenuItem(title: string, index: number) {
-    return (
-      <div className="menu-item" key={index} onClick={this.navigateTo(title)}>
-        <Center>{title}</Center>
-      </div>
-    )
-  }
-
-  renderBanner() {
-    return (
-      <div className="nav-menu">
-        <div className="menu-container">
-          {this.menus.map(this.renderMenuItem.bind(this))}
-          <div className="menu-extra">
-            <Center>github</Center>
-          </div>
-        </div>
-      </div>
-    )
-  }
-
   renderTags() {
     return (
       <div className="tags">
@@ -70,12 +24,11 @@ export default class Post extends Component {
   render() {
     return (
       <div style={{width: '100%', display: 'flex', flexDirection: 'column' ,alignItems: 'center'}}>
-        {this.renderHeader()}
-        {this.renderBanner()}
+        <Header/>
+        <NavBar/>
         {this.renderTags()}
         <div className="markdown-content">
           <MarkdownRender source={cnn}/>
-
         </div>
 
         <div style={{width: "99%", borderBottom: "1px solid black", height: 50}}></div>

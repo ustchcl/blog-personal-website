@@ -13,6 +13,7 @@ import {
 } from "react-router-dom";
 import PostList from './pages/post_list/PostList';
 import Post from './pages/post_list/Post';
+import Admin from './pages/admin/Admin';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route exact path="/home" component={Home} />
           <Route exact path="/posts" component={PostList}/>
           <Route exact path="/post/:id" component={Post}/>
+          <Route exact path="/admin" component={Admin}/>
         </Switch>
       </Router>
     </div>
