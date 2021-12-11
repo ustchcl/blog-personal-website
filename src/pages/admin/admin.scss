@@ -1,0 +1,55 @@
+.login-btn:before {
+    content: "";
+    background: #6600ea88;
+    position: absolute;
+    width: 200px;
+    height: 5px;
+    bottom: 51px;
+    left: 240px;
+    transform: scaleX(0);
+    animation: 1s forwards no-hover-v ease;
+    animation-fill-mode: forwards;
+    z-index: -1;
+  }
+  .login-btn:hover:before,
+  .login-btn:focus:before {
+    animation: 0.3s forwards hover-v ease;
+    animation-fill-mode: forwards;
+  }
+  @keyframes hover-v {
+    0% {
+      transform: scaleX(0);
+      height: 5px;
+    }
+    45% {
+      transform: scaleX(1);
+      height: 5px;
+    }
+    55% {
+      height: 5px;
+    }
+    100% {
+      transform: scaleX(1);
+      height: 50px;
+    }
+  }
+  @keyframes no-hover-v {
+    0% {
+      transform: scaleX(1);
+      height: 50px;
+    }
+    45% {
+      height: 5px;
+    }
+    55% {
+      transform: scaleX(1);
+      height: 5px;
+      opacity: 1;
+    }
+  
+    100% {
+      transform: scaleX(0);
+      height: 5px;
+      opacity: 0.02;
+    }
+  }
