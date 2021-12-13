@@ -16,6 +16,7 @@ import Post from './pages/post_list/Post';
 import Admin from './pages/admin/Admin';
 import Loading from './components/Loading';
 import { setLoading } from './Global';
+import AdminManager from './pages/admin/AdminManager';
 
 class App extends React.Component {
   loading: React.RefObject<Loading> = React.createRef();
@@ -35,7 +36,8 @@ class App extends React.Component {
             <Route exact path="/home" component={Home} />
             <Route exact path="/posts" component={PostList} />
             <Route exact path="/post/:id" component={Post} />
-            <Route exact path="/admin" component={Admin} />
+            <Route exact path="/admin-login" component={Admin} />
+            <Route exact path="/admin" component={AdminManager} />
           </Switch>
         </Router>
         <Loading ref={this.loading}/>

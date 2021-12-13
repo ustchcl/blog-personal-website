@@ -10,6 +10,7 @@
     "@testing-library/user-event": "^7.1.2",
     "@types/jest": "^24.0.0",
     "@types/node": "^12.0.0",
+    "@types/ramda": "^0.27.60",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
     "@typescript-eslint/eslint-plugin": "^2.10.0",
@@ -49,6 +50,7 @@
     "postcss-normalize": "8.0.1",
     "postcss-preset-env": "6.7.0",
     "postcss-safe-parser": "4.0.1",
+    "ramda": "^0.27.1",
     "raw-loader": "^4.0.1",
     "react": "^16.13.1",
     "react-app-polyfill": "^1.0.6",
@@ -66,11 +68,12 @@
     "style-loader": "0.23.1",
     "terser-webpack-plugin": "2.3.5",
     "ts-pnp": "1.1.6",
-    "typescript": "~3.7.2",
+    "typescript": "latest",
     "url-loader": "2.3.0",
     "webpack": "4.42.0",
     "webpack-dev-server": "3.10.3",
     "webpack-manifest-plugin": "2.2.0",
+    "whatwg-fetch": "^3.6.2",
     "workbox-webpack-plugin": "4.3.1"
   },
   "scripts": {
@@ -150,6 +153,7 @@
   },
   "devDependencies": {
     "@types/react-router-dom": "^5.1.5",
-    "@types/react-syntax-highlighter": "^11.0.4"
+    "@types/react-syntax-highlighter": "^11.0.4",
+    "@types/whatwg-fetch": "^0.0.33"
   }
 }
