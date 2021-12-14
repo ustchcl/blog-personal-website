@@ -37,7 +37,7 @@ export default class Admin extends React.Component {
     render() {
         return (
             <div className="h-center" style={{ textAlign: "center", width: "100%", position: "relative" }}>
-                <div className="title"> Adminstration</div>
+                <div className="admin-title"> Adminstration</div>
                 <Divider />
                 <div style={{ height: 100 }}></div>
                 <div>

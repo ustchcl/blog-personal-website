@@ -62,12 +62,21 @@ export default class Pagination extends React.Component<PaginationProps, Paginat
         this.props.onChange(this.props.current + 1)
     }
 
+    goto(page: number) {
+        return () => {
+            this.props.onChange(page)
+        }
+    }
+
     render() {
+        const disablePrev = this.state.offset === 0
+        const disableNext = this.state.offset === this.props.totalPage - 9
+        const activeCurrent = (i: number) => this.props.current === i
         return (
             <div className="pagination">
-                <span onClick={this.previous.bind(this)}>&laquo;</span>
-                {this.state.pageArray.map(i => <span className={i === this.props.current ? "active" : ""} key={i}>{i}</span>)}
-                <span onClick={this.next.bind(this)}>&raquo;</span>
+                <button className="unselectable" onClick={this.previous.bind(this)} disabled={disablePrev}>&laquo;</button>
+                {this.state.pageArray.map(i => <span onClick={this.goto(i).bind(this)} className={activeCurrent(i) ? "active unselectable" : "unselectable"} key={i}>{i}</span>)}
+                <button className="unselectable" onClick={this.next.bind(this)} disabled={disableNext}>&raquo;</button>
             </div>
         )
     }

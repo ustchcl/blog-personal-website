@@ -97,6 +97,13 @@ input:hover, input:active, input:visited {
   color: #6600EA;
 }
 
+/**不可选中的文本**/
+.unselectable {
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
+}
 
 
 /* 自定义scrollbar */
