@@ -5,9 +5,13 @@ import Pagination from "../../components/Pagination"
 import Spacer from "../../components/Spacer"
 import Table, { TableConfig } from "../../components/Table"
 import * as R from "ramda"
-import "./admin.scss"
+
 import BaseButton from "../../components/BaseButton"
 
+import { faCoffee, faUser } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+
+import "./admin.scss"
 
 type Article = {
     title: string;
@@ -53,7 +57,9 @@ export default class AdminManager extends React.Component {
 
                 <Pagination totalPage={47} current={this.state.current} onChange={(page) => this.setState({current: page})}/>
                 <Table title="SomeTable" tableConfig={this.tableConfig} fetchData={fetchData}>
-                    <BaseButton width="100px" height="30px">Delete</BaseButton>
+                    <BaseButton width="100px" height="30px">
+                    <FontAwesomeIcon icon={faCoffee} size="xs" />
+                    </BaseButton>
                 </Table>
             </div>
         )

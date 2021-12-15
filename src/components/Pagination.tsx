@@ -1,6 +1,9 @@
 import React from "react";
-import "./comp.scss"
 import * as R from "ramda"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import "./comp.scss"
+import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 
 type PaginationProps = {
     totalPage: number;
@@ -74,9 +77,14 @@ export default class Pagination extends React.Component<PaginationProps, Paginat
         const activeCurrent = (i: number) => this.props.current === i
         return (
             <div className="pagination">
-                <button className="unselectable" onClick={this.previous.bind(this)} disabled={disablePrev}>&laquo;</button>
+                <button className="unselectable" onClick={this.previous.bind(this)} disabled={disablePrev}>
+                    <FontAwesomeIcon icon={faAngleLeft}/>
+                    {/* <i className="fa-solid fa-user"></i> */}
+                </button>
                 {this.state.pageArray.map(i => <span onClick={this.goto(i).bind(this)} className={activeCurrent(i) ? "active unselectable" : "unselectable"} key={i}>{i}</span>)}
-                <button className="unselectable" onClick={this.next.bind(this)} disabled={disableNext}>&raquo;</button>
+                <button className="unselectable" onClick={this.next.bind(this)} disabled={disableNext}>
+                    <FontAwesomeIcon icon={faAngleRight}></FontAwesomeIcon>
+                </button>
             </div>
         )
     }

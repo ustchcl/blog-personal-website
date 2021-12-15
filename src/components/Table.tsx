@@ -71,20 +71,20 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
                 <thead>
                     <tr>
                         {
-                            this.props.tableConfig.map(config => <th style={{flex: config.flex}}><Center>{config.name}</Center></th>)
+                            this.props.tableConfig.map((config, index) => <th key={index} style={{flex: config.flex}}><Center>{config.name}</Center></th>)
                         }
                     </tr>
                 </thead>
 
                 <tbody>
                     {
-                        this.state.elements.map(element => {
-                            return (<tr>
+                        this.state.elements.map((element, index) => {
+                            return (<tr key={`tr-${index}`}>
                                 {
                                     dataConfig.map((columnConfig, index) => {
                                         return (
                                             <td
-                                                key={index}
+                                                key={`td-${index}`}
                                                 style={{
                                                     flex: columnConfig.flex
                                                 }}>
@@ -98,7 +98,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
                                 }
                                 {
                                     hasAction 
-                                        ? <td style={{flex: this.props.tableConfig[len-1].flex}}><Center>{this.props.children}</Center></td> 
+                                        ? <td key="action" style={{flex: this.props.tableConfig[len-1].flex}}><Center>{this.props.children}</Center></td> 
                                         : <></>
                                 }
                             </tr>)

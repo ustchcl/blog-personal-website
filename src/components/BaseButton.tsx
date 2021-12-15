@@ -10,9 +10,9 @@ type BaseButtonProps = {
 export default class BaseButton extends React.Component<BaseButtonProps> {
     render() {
         return (
-            <div style={{position: "relative", width: this.props.width, height: this.props.height}}>
-            <button onClick={this.props.onClick} className="base-button"
-            >{this.props.children}</button>
+            <div style={{ position: "relative", width: this.props.width, height: this.props.height }}>
+                <button onClick={this.props.onClick} className="base-button"
+                >{this.props.children}</button>
             </div>
         )
     }
