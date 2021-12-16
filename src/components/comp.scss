@@ -222,7 +222,7 @@
 
 /** LeftNav **/
 .vertial-nav {
-  transform: skewX(-30deg);
+  transform: skewX(30deg);
   display: flex;
   width: 600px;
   border: 1px solid black;
@@ -237,7 +237,7 @@
   animation: 0.5s forwards nav-no-hover ease;
 
   div {
-    transform: skewX(30deg);
+    transform: skewX(-30deg);
   }
 }
 

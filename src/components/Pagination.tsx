@@ -73,7 +73,7 @@ export default class Pagination extends React.Component<PaginationProps, Paginat
 
     render() {
         const disablePrev = this.state.offset === 0
-        const disableNext = this.state.offset === this.props.totalPage - 9
+        const disableNext = this.state.offset >= this.props.totalPage - 9
         const activeCurrent = (i: number) => this.props.current === i
         return (
             <div className="pagination">

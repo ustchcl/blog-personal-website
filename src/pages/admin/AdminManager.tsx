@@ -42,7 +42,7 @@ export default class AdminManager extends React.Component {
         { name: "创建时间", prop: "createAt", flex: 2 },
         { name: "更新时间", prop: "updateAt", flex: 2 },
         { name: "路径", prop: "markdownPath", flex: 3 },
-        { name: "操作", flex: 3}
+        { name: "操作", flex: 3 }
     ]
     state = {
         current: 20
@@ -51,14 +51,16 @@ export default class AdminManager extends React.Component {
         return (
             <div className="admin h-center">
                 <div className="admin-title"> Adminstration</div>
-                <Divider/>
-                <Spacer height="40px"/>
-                <AdminNav></AdminNav>
+                <Divider />
+                <Spacer height="10px" />
+                <div style={{ width: "100%", display: "flex", justifyContent: "flex-end", paddingRight: "50px" }}>
+                    <AdminNav></AdminNav>
+                </div>
+                <Spacer height="30px" />
 
-                <Pagination totalPage={47} current={this.state.current} onChange={(page) => this.setState({current: page})}/>
                 <Table title="SomeTable" tableConfig={this.tableConfig} fetchData={fetchData}>
                     <BaseButton width="100px" height="30px">
-                    <FontAwesomeIcon icon={faCoffee} size="xs" />
+                        <FontAwesomeIcon icon={faCoffee} size="xs" />
                     </BaseButton>
                 </Table>
             </div>

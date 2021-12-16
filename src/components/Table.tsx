@@ -1,7 +1,9 @@
 import React from "react"
 import * as R from "ramda"
 import Center from "./Center"
+import Pagination from './Pagination'
 import './comp.scss'
+import Spacer from "./Spacer"
 
 type Fn<F1, F2> = (_: F1) => F2
 
@@ -49,6 +51,13 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
         })
     }
 
+    onPageChange(page: number) {
+        this.setState({
+            page: page
+        })
+        this.fetch();
+    }
+
     getInfo(config: TableConfigItem<T>, data: T) {
         if (config.props) {
           return R.path(config.props, data);
@@ -67,46 +76,50 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
         const dataConfig = hasAction ? R.dropLast(1, this.props.tableConfig) : this.props.tableConfig 
 
         return (
-            <table className="base-table">
-                <thead>
-                    <tr>
+            <div>
+                <table className="base-table">
+                    <thead>
+                        <tr>
+                            {
+                                this.props.tableConfig.map((config, index) => <th key={index} style={{flex: config.flex}}><Center>{config.name}</Center></th>)
+                            }
+                        </tr>
+                    </thead>
+
+                    <tbody>
                         {
-                            this.props.tableConfig.map((config, index) => <th key={index} style={{flex: config.flex}}><Center>{config.name}</Center></th>)
+                            this.state.elements.map((element, index) => {
+                                return (<tr key={`tr-${index}`}>
+                                    {
+                                        dataConfig.map((columnConfig, index) => {
+                                            return (
+                                                <td
+                                                    key={`td-${index}`}
+                                                    style={{
+                                                        flex: columnConfig.flex
+                                                    }}>
+                                                        {columnConfig.render 
+                                                            ? columnConfig.render(element) 
+                                                            : <Center>{this.getInfo(columnConfig, element)}</Center>
+                                                        }
+                                                </td>
+                                            )
+                                        })
+                                    }
+                                    {
+                                        hasAction 
+                                            ? <td key="action" style={{flex: this.props.tableConfig[len-1].flex}}><Center>{this.props.children}</Center></td> 
+                                            : <></>
+                                    }
+                                </tr>)
+                            })
                         }
-                    </tr>
-                </thead>
 
-                <tbody>
-                    {
-                        this.state.elements.map((element, index) => {
-                            return (<tr key={`tr-${index}`}>
-                                {
-                                    dataConfig.map((columnConfig, index) => {
-                                        return (
-                                            <td
-                                                key={`td-${index}`}
-                                                style={{
-                                                    flex: columnConfig.flex
-                                                }}>
-                                                    {columnConfig.render 
-                                                        ? columnConfig.render(element) 
-                                                        : <Center>{this.getInfo(columnConfig, element)}</Center>
-                                                    }
-                                            </td>
-                                        )
-                                    })
-                                }
-                                {
-                                    hasAction 
-                                        ? <td key="action" style={{flex: this.props.tableConfig[len-1].flex}}><Center>{this.props.children}</Center></td> 
-                                        : <></>
-                                }
-                            </tr>)
-                        })
-                    }
-
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+                <Spacer height="20px"/>
+                <Pagination current={this.state.page} totalPage={Math.ceil(this.state.total/10)} onChange={this.onPageChange.bind(this)}/>
+            </div>
         )
     }
 }
