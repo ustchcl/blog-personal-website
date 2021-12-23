@@ -4,12 +4,11 @@ import './App.css';
 import Home from './pages/home/Home';
 import {
   BrowserRouter as Router,
-  Switch,
+  BrowserRouter,
   Route,
   Link,
-  useRouteMatch,
   useParams,
-  Redirect
+  Routes
 } from "react-router-dom";
 import PostList from './pages/post_list/PostList';
 import Post from './pages/post_list/Post';
@@ -28,19 +27,16 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Router>
-          <Switch>
-            <Route exact path="/">
-              <Redirect to="/home" />
-            </Route>
-            <Route exact path="/home" component={Home} />
-            <Route exact path="/posts" component={PostList} />
-            <Route exact path="/post/:id" component={Post} />
-            <Route exact path="/admin-login" component={Admin} />
-            <Route exact path="/admin" component={AdminManager} />
-          </Switch>
-        </Router>
-        <Loading ref={this.loading}/>
+        <Routes>
+          <Route path="/" element={<Home/>} >
+          </Route>
+          <Route path="/home" element={<Home/>} />
+          <Route path="/posts" element={<PostList/>} />
+          <Route path="/post/:id" element={<Post/>} />
+          <Route path="/admin-login" element={<Admin/>} />
+          <Route path="/admin" element={<AdminManager/>} />
+        </Routes>
+        <Loading ref={this.loading} />
       </div>
     );
   }

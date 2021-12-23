@@ -17,8 +17,8 @@
     "@types/ramda": "^0.27.60",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
-    "@typescript-eslint/eslint-plugin": "^2.10.0",
-    "@typescript-eslint/parser": "^2.10.0",
+    "@typescript-eslint/eslint-plugin": "4.1.1",
+    "@typescript-eslint/parser": "4.1.1",
     "babel-eslint": "10.1.0",
     "babel-jest": "^24.9.0",
     "babel-loader": "8.1.0",
@@ -55,19 +55,21 @@
     "postcss-normalize": "8.0.1",
     "postcss-preset-env": "6.7.0",
     "postcss-safe-parser": "4.0.1",
+    "querystringify": "^2.2.0",
     "ramda": "^0.27.1",
     "raw-loader": "^4.0.1",
-    "react": "^16.13.1",
-    "react-app-polyfill": "^1.0.6",
-    "react-dev-utils": "^10.2.1",
-    "react-dom": "^16.13.1",
+    "react": "^17.0.2",
+    "react-app-polyfill": "^3.0.0",
+    "react-dev-utils": "^12.0.0",
+    "react-dom": "^17.0.2",
     "react-markdown": "^4.3.1",
     "react-mathjax": "^1.0.1",
-    "react-router-dom": "^5.2.0",
+    "react-router-dom": "^6.2.1",
     "react-syntax-highlighter": "^13.2.1",
     "remark-math": "^2.0.1",
     "resolve": "1.15.0",
     "resolve-url-loader": "3.1.1",
+    "rxjs": "^7.4.0",
     "sass-loader": "8.0.2",
     "semver": "6.3.0",
     "style-loader": "0.23.1",
@@ -160,8 +162,11 @@
     ]
   },
   "devDependencies": {
-    "@types/react-router-dom": "^5.1.5",
     "@types/react-syntax-highlighter": "^11.0.4",
     "@types/whatwg-fetch": "^0.0.33"
+  },
+  "resolutions": {
+    "**/@typescript-eslint/eslint-plugin": "4.1.1",
+    "**/@typescript-eslint/parser": "4.1.1"
   }
 }
